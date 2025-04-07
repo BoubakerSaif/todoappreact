@@ -12,10 +12,14 @@ const TodoList = () => {
 
   const toggleCompleted = (id) => {
     setTodos(
-      todos.map((todo) =>
-        todo.id == id ? { ...todo, completed: !todo.completed } : todo
+      todos.map((el) =>
+        el.id == id ? { ...el, completed: !el.completed } : el
       )
     );
+  };
+
+  const updateTodo = (id, upTask) => {
+    setTodos(todos.map((el) => (el.id == id ? { ...el, task: upTask } : el)));
   };
 
   return (
@@ -27,6 +31,7 @@ const TodoList = () => {
           todo={el}
           deleteTask={deleteTask}
           toggleCompleted={toggleCompleted}
+          updateTodo={updateTodo}
         />
       ))}
     </div>
